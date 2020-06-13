@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const MovieCard = (props) => {
   const {movie} = props;
@@ -23,3 +24,7 @@ const MovieCard = (props) => {
 };
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  movie: PropTypes.string.isRequired,
+};

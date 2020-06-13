@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import MovieCard from './MovieCard.jsx';
 
 const Main = (props) => {
-  // eslint-disable-next-line react/prop-types
   const {title, genre, year} = props.promo;
   const films = props.films;
 
@@ -101,7 +102,7 @@ const Main = (props) => {
           </ul>
 
           <div className="catalog__movies-list">
-            {films.map(item => <MovieCard movie={item} key={item}/>)}
+            {films.map((item) => <MovieCard movie={item} key={item}/>)}
           </div>
 
           <div className="catalog__more">
@@ -128,3 +129,12 @@ const Main = (props) => {
 };
 
 export default Main;
+
+Main.propTypes = {
+  promo: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+  }),
+  films: PropTypes.arrayOf(PropTypes.string.isRequired),
+};
