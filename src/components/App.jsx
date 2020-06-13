@@ -8,6 +8,7 @@ const App = (props) => {
       <Main
         // eslint-disable-next-line react/prop-types
         promo={props.promo}
+        films={props.films}
       />
     </div>
   );
