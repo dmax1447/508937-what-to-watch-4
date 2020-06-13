@@ -1,10 +1,14 @@
 import React from "react";
 import Main from './Main.jsx';
 
-const App = () => {
+const App = (props) => {
+
   return (
     <div>
-      <Main />
+      <Main
+        // eslint-disable-next-line react/prop-types
+        promo={props.promo}
+      />
     </div>
   );
 };
