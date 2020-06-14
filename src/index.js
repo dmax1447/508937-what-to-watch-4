@@ -8,7 +8,9 @@ const promo = {
   year: `1963`,
 };
 
+const films = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
+
 ReactDOM.render(
-    <App promo={promo} />,
+    <App promo={promo} films={films} />,
     document.getElementById(`root`)
 );
