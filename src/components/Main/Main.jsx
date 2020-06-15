@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import MovieCard from './MovieCard.jsx';
+import MovieCard from "../MovieCard/MovieCard.jsx";
 
 const Main = (props) => {
   const {title, genre, year} = props.promo;
