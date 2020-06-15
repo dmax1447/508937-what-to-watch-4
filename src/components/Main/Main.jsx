@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import MovieCard from './MovieCard.jsx';
+import MovieCard from "../MovieCard/MovieCard.jsx";
 
 const Main = (props) => {
   const {title, genre, year} = props.promo;
   const films = props.films;
+  const onCardTitleClick = props.onCardTitleClick;
 
   return (
     <div>
@@ -102,7 +103,7 @@ const Main = (props) => {
           </ul>
 
           <div className="catalog__movies-list">
-            {films.map((item) => <MovieCard movie={item} key={item}/>)}
+            {films.map((item) => <MovieCard movie={item} onCardTitleClick={onCardTitleClick} key={item}/>)}
           </div>
 
           <div className="catalog__more">
@@ -137,4 +138,5 @@ Main.propTypes = {
     year: PropTypes.string.isRequired,
   }),
   films: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  onCardTitleClick: PropTypes.func.isRequired,
 };
