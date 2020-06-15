@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const MovieCard = (props) => {
-  const {movie} = props;
+  const {movie, onCardTitleClick} = props;
 
   return (
     <article className="small-movie-card catalog__movies-card">
@@ -15,7 +15,7 @@ const MovieCard = (props) => {
         />
       </div>
       <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href="movie-page.html">
+        <a className="small-movie-card__link" href="movie-page.html" onClick={onCardTitleClick}>
           {movie}
         </a>
       </h3>
@@ -27,4 +27,5 @@ export default MovieCard;
 
 MovieCard.propTypes = {
   movie: PropTypes.string.isRequired,
+  onCardTitleClick: PropTypes.func.isRequired
 };

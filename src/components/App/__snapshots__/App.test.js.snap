@@ -277,6 +277,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
               <a
                 className="small-movie-card__link"
                 href="movie-page.html"
+                onClick={[Function]}
               >
                 Fantastic Beasts
               </a>
@@ -301,6 +302,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
               <a
                 className="small-movie-card__link"
                 href="movie-page.html"
+                onClick={[Function]}
               >
                 Bohemian Rhapsody
               </a>
@@ -325,6 +327,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
               <a
                 className="small-movie-card__link"
                 href="movie-page.html"
+                onClick={[Function]}
               >
                 Macbeth
               </a>
