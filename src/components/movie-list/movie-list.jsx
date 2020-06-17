@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import MovieCard from "../MovieCard/movie-card.jsx";
+import MovieCard from "../movie-card/movie-card.jsx";
 
 class MovieList extends PureComponent {
   constructor(props) {

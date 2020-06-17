@@ -1,5 +1,5 @@
 import React from "react";
-import Main from '../Main/main.jsx';
+import Main from '../main/main.jsx';
 import PropTypes from "prop-types";
 
 const App = (props) => {

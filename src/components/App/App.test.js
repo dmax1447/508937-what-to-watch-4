@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import App from "./App.jsx";
+import App from "./app.jsx";
 
 import promo from '../../mocks/tests/promo.js';
 import films from '../../mocks/tests/films.js';
