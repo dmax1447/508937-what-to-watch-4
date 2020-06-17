@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MovieCard /> should render card with title "Terminator" 1`] = `
+exports[`<MovieCard /> should render card Fantastic Beasts 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
+  onMouseEnter={[Function]}
 >
   <div
     className="small-movie-card__image"
@@ -22,7 +23,7 @@ exports[`<MovieCard /> should render card with title "Terminator" 1`] = `
       href="movie-page.html"
       onClick={[Function]}
     >
-      Terminator
+      Fantastic Beasts: The Crimes of Grindelwald
     </a>
   </h3>
 </article>

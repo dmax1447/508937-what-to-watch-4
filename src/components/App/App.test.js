@@ -2,26 +2,22 @@ import React from "react";
 import renderer from "react-test-renderer";
 import App from "./App.jsx";
 
-const promo = {
-  title: `Birds`,
-  genre: `horror`,
-  year: `1963`,
-};
-
-const films = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
+import promo from '../../mocks/tests/promo.js';
+import films from '../../mocks/tests/films.js';
 
 const onCardTitleClick = (evt) => {
   evt.preventDefault();
 };
 
 it(`<App /> should render Main with promo and films list`, () => {
-  const main = renderer
-    .create(<App
-      promo={promo}
-      films={films}
-      onCardTitleClick={onCardTitleClick}
-    />)
+  const app = renderer
+    .create(
+        <App
+          promo={promo}
+          films={films}
+          onCardTitleClick={onCardTitleClick}
+        />)
     .toJSON();
 
-  expect(main).toMatchSnapshot();
+  expect(app).toMatchSnapshot();
 });
