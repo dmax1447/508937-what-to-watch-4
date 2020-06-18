@@ -9,7 +9,7 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-it(`when mouse hover over movie card callback should be called with movie name`, () => {
+it(`when mouse hover over movie card callback should be called with movie card data`, () => {
   const cardTitleClickHandler = jest.fn();
   const cardHoverHandler = jest.fn();
 
@@ -19,5 +19,5 @@ it(`when mouse hover over movie card callback should be called with movie name`,
   );
 
   movieCard.simulate(`mouseEnter`);
-  expect(cardHoverHandler.mock.calls[0][0]).toBe(movie.title);
+  expect(cardHoverHandler.mock.calls[0][0]).toEqual(movie);
 });

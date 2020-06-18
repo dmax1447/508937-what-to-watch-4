@@ -12,8 +12,8 @@ class MovieList extends PureComponent {
     this._cardMouseEnterHandler = this._cardMouseEnterHandler.bind(this);
   }
 
-  _cardMouseEnterHandler(movieName) {
-    this.setState({currentMovie: movieName});
+  _cardMouseEnterHandler(movie) {
+    this.setState({currentMovie: movie});
   }
 
   render() {

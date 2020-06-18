@@ -19,6 +19,6 @@ it(`when mouse hover over movie card currenFilm in MovieList state should be upd
   films.forEach((item, i) => {
     const card = movieList.find(`.small-movie-card`).at(i);
     card.simulate(`mouseEnter`);
-    expect(movieList.state(`currentMovie`)).toBe(item.title);
+    expect(movieList.state(`currentMovie`)).toEqual(item);
   });
 });

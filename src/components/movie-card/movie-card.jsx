@@ -5,7 +5,7 @@ const MovieCard = (props) => {
   const {movie, onCardTitleClick, onMouseEnter} = props;
 
   return (
-    <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onMouseEnter(movie.title)}>
+    <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onMouseEnter(movie)}>
       <div className="small-movie-card__image">
         <img
           src={`img/${movie.picture}`}
