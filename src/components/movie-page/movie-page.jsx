@@ -1,16 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 
-const OverviewParagraph = (props) => {
-  const {content} = props;
-
-  return (
-    <p>
-      {content}
-    </p>
-  );
-};
-
 class MoviePage extends PureComponent {
   constructor(props) {
     super(props);
@@ -124,14 +114,19 @@ class MoviePage extends PureComponent {
                 <div className="movie-rating">
                   <div className="movie-rating__score">{film.ratingScore}</div>
                   <p className="movie-rating__meta">
-                    <span className="movie-rating__level">{film.ratingLevel}</span>
-                    <span className="movie-rating__count">{film.ratingCount} ratings</span>
+                    <span className="movie-rating__level">
+                      {film.ratingLevel}
+                    </span>
+                    <span className="movie-rating__count">
+                      {film.ratingCount} ratings
+                    </span>
                   </p>
                 </div>
 
                 <div className="movie-card__text">
-                  {overview.map((item, i) => <OverviewParagraph content={item} key={i}/>)}
-
+                  {overview.map((item, i) => (
+                    <p key={i}>{item}</p>
+                  ))}
                   <p className="movie-card__director">
                     <strong>Director: {film.director}</strong>
                   </p>
