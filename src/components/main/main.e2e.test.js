@@ -1,15 +1,10 @@
 import React from "react";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import Main from './Main.jsx';
+import Main from './main.jsx';
 
-const promo = {
-  title: `Birds`,
-  genre: `horror`,
-  year: `1963`,
-};
-
-const films = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
+import promo from '../../mocks/tests/promo.js';
+import films from '../../mocks/tests/films.js';
 
 Enzyme.configure({
   adapter: new Adapter(),

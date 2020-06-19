@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from './components/App/App.jsx';
+import App from './components/app/app.jsx';
+import mockFilms from './mocks/films.js';
 
 const promo = {
   title: `Birds`,
@@ -8,9 +9,7 @@ const promo = {
   year: `1963`,
 };
 
-const films = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
-
 ReactDOM.render(
-    <App promo={promo} films={films} />,
+    <App promo={promo} films={mockFilms} />,
     document.getElementById(`root`)
 );

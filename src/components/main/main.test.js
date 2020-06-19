@@ -1,14 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Main from "./Main.jsx";
+import Main from "./main.jsx";
 
-const promo = {
-  title: `Birds`,
-  genre: `horror`,
-  year: `1963`,
-};
-
-const films = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
+import promo from '../../mocks/tests/promo.js';
+import films from '../../mocks/tests/films.js';
 
 const onCardTitleClick = (evt) => {
   evt.preventDefault();

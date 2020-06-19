@@ -1,5 +1,5 @@
 import React from "react";
-import Main from '../Main/Main.jsx';
+import Main from '../main/main.jsx';
 import PropTypes from "prop-types";
 
 const App = (props) => {
@@ -27,5 +27,11 @@ App.propTypes = {
     genre: PropTypes.string.isRequired,
     year: PropTypes.string.isRequired,
   }),
-  films: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  films: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        picture: PropTypes.string.isRequired,
+      })
+  ).isRequired,
 };
