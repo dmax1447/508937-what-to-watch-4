@@ -1,6 +1,8 @@
 import React from "react";
-import Main from '../main/main.jsx';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import PropTypes from "prop-types";
+import Main from '../main/main.jsx';
+import MoviePage from '../movie-page/movie-page.jsx';
 
 const App = (props) => {
   const onCardTitleClick = (evt) => {
@@ -10,11 +12,20 @@ const App = (props) => {
 
   return (
     <div>
-      <Main
-        promo={props.promo}
-        films={props.films}
-        onCardTitleClick={onCardTitleClick}
-      />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Main
+              promo={props.promo}
+              films={props.films}
+              onCardTitleClick={onCardTitleClick}
+            />
+          </Route>
+          <Route exact path="/dev-film">
+            <MoviePage />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };
