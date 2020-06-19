@@ -1,5 +1,15 @@
 import React, {PureComponent} from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
+
+const OverviewParagraph = (props) => {
+  const {content} = props;
+
+  return (
+    <p>
+      {content}
+    </p>
+  );
+};
 
 class MoviePage extends PureComponent {
   constructor(props) {
@@ -8,7 +18,8 @@ class MoviePage extends PureComponent {
 
 
   render() {
-
+    const {film} = this.props;
+    const overview = film.overview.split(`/`);
     return (
       <div>
         <section className="movie-card movie-card--full">
@@ -45,10 +56,10 @@ class MoviePage extends PureComponent {
 
             <div className="movie-card__wrap">
               <div className="movie-card__desc">
-                <h2 className="movie-card__title">The Grand Budapest Hotel</h2>
+                <h2 className="movie-card__title">{film.title}</h2>
                 <p className="movie-card__meta">
-                  <span className="movie-card__genre">Drama</span>
-                  <span className="movie-card__year">2014</span>
+                  <span className="movie-card__genre">{film.genre}</span>
+                  <span className="movie-card__year">{film.year}</span>
                 </p>
 
                 <div className="movie-card__buttons">
@@ -82,8 +93,8 @@ class MoviePage extends PureComponent {
             <div className="movie-card__info">
               <div className="movie-card__poster movie-card__poster--big">
                 <img
-                  src="img/the-grand-budapest-hotel-poster.jpg"
-                  alt="The Grand Budapest Hotel poster"
+                  src={`img/${film.poster}`}
+                  alt={film.title}
                   width="218"
                   height="327"
                 />
@@ -111,38 +122,23 @@ class MoviePage extends PureComponent {
                 </nav>
 
                 <div className="movie-rating">
-                  <div className="movie-rating__score">8,9</div>
+                  <div className="movie-rating__score">{film.ratingScore}</div>
                   <p className="movie-rating__meta">
-                    <span className="movie-rating__level">Very good</span>
-                    <span className="movie-rating__count">240 ratings</span>
+                    <span className="movie-rating__level">{film.ratingLevel}</span>
+                    <span className="movie-rating__count">{film.ratingCount} ratings</span>
                   </p>
                 </div>
 
                 <div className="movie-card__text">
-                  <p>
-                    In the 1930s, the Grand Budapest Hotel is a popular European
-                    ski resort, presided over by concierge Gustave H. (Ralph
-                    Fiennes). Zero, a junior lobby boy, becomes Gustaves friend
-                    and protege.
-                  </p>
-
-                  <p>
-                    Gustave prides himself on providing first-class service to
-                    the hotels guests, including satisfying the sexual needs of
-                    the many elderly women who stay there. When one of Gustaves
-                    lovers dies mysteriously, Gustave finds himself the
-                    recipient of a priceless painting and the chief suspect in
-                    her murder.
-                  </p>
+                  {overview.map((item, i) => <OverviewParagraph content={item} key={i}/>)}
 
                   <p className="movie-card__director">
-                    <strong>Director: Wes Andreson</strong>
+                    <strong>Director: {film.director}</strong>
                   </p>
 
                   <p className="movie-card__starring">
                     <strong>
-                      Starring: Bill Murray, Edward Norton, Jude Law, Willem
-                      Dafoe and other
+                      Starring: {film.starring.join(`,`)} and other
                     </strong>
                   </p>
                 </div>
@@ -241,7 +237,20 @@ class MoviePage extends PureComponent {
   }
 }
 
-// MoviePage.propTypes = {
-// };
+MoviePage.propTypes = {
+  film: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    ratingScore: PropTypes.number.isRequired,
+    ratingLevel: PropTypes.string.isRequired,
+    ratingCount: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    director: PropTypes.string.isRequired,
+    starring: PropTypes.arrayOf(PropTypes.string.isRequired),
+  }),
+};
 
 export default MoviePage;

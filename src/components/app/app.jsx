@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import Main from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
 
+import movieFullMock from '../../mocks/movie-full.js';
+
 const App = (props) => {
   const onCardTitleClick = (evt) => {
     evt.preventDefault();
@@ -22,7 +24,7 @@ const App = (props) => {
             />
           </Route>
           <Route exact path="/dev-film">
-            <MoviePage />
+            <MoviePage film={movieFullMock} />
           </Route>
         </Switch>
       </BrowserRouter>
