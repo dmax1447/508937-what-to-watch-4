@@ -4,6 +4,11 @@ import PropTypes from "prop-types";
 const MovieCard = (props) => {
   const {movie, onCardTitleClick, onMouseEnter} = props;
 
+  const cardTitleClickHandler = (evt) => {
+    evt.preventDefault();
+    onCardTitleClick(movie.id);
+  };
+
   return (
     <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onMouseEnter(movie)}>
       <div className="small-movie-card__image">
@@ -12,13 +17,14 @@ const MovieCard = (props) => {
           alt={movie.title}
           width="280"
           height="175"
+          onClick={cardTitleClickHandler}
         />
       </div>
       <h3 className="small-movie-card__title">
         <a
           className="small-movie-card__link"
-          href="movie-page.html"
-          onClick={onCardTitleClick}
+          href={`/movie-page/${movie.id}`}
+          onClick={cardTitleClickHandler}
         >
           {movie.title}
         </a>

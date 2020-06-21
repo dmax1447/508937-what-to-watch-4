@@ -1,36 +1,46 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import PropTypes from "prop-types";
 import Main from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
 
-import movieFullMock from '../../mocks/movie-full.js';
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      movieId: `f03`,
+    };
 
-const App = (props) => {
-  const onCardTitleClick = (evt) => {
-    evt.preventDefault();
-  };
+    this.onCardTitleClick = this.onCardTitleClick.bind(this);
 
+  }
 
-  return (
-    <div>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            <Main
-              promo={props.promo}
-              films={props.films}
-              onCardTitleClick={onCardTitleClick}
-            />
-          </Route>
-          <Route exact path="/dev-film">
-            <MoviePage film={movieFullMock} />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
-};
+  onCardTitleClick(id) {
+    this.setState({movieId: id});
+  }
+
+  render() {
+    return (
+      <div>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <Main
+                promo={this.props.promo}
+                films={this.props.films}
+                onCardTitleClick={this.onCardTitleClick}
+              />
+            </Route>
+            <Route path="/dev-film">
+              <MoviePage film={this.props.films.find((item) => item.id === this.state.movieId)} />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
+  }
+
+}
 
 export default App;
 

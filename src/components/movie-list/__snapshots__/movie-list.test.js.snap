@@ -14,6 +14,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
       <img
         alt="Fantastic Beasts: The Crimes of Grindelwald"
         height="175"
+        onClick={[Function]}
         src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
         width="280"
       />
@@ -23,7 +24,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/movie-page/f01"
         onClick={[Function]}
       >
         Fantastic Beasts: The Crimes of Grindelwald
@@ -40,6 +41,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
       <img
         alt="Bohemian Rhapsody"
         height="175"
+        onClick={[Function]}
         src="img/bohemian-rhapsody.jpg"
         width="280"
       />
@@ -49,7 +51,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/movie-page/f02"
         onClick={[Function]}
       >
         Bohemian Rhapsody
@@ -66,6 +68,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
       <img
         alt="Macbeth"
         height="175"
+        onClick={[Function]}
         src="img/macbeth.jpg"
         width="280"
       />
@@ -75,7 +78,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/movie-page/f03"
         onClick={[Function]}
       >
         Macbeth
@@ -92,6 +95,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
       <img
         alt="Aviator"
         height="175"
+        onClick={[Function]}
         src="img/aviator.jpg"
         width="280"
       />
@@ -101,7 +105,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/movie-page/f04"
         onClick={[Function]}
       >
         Aviator
@@ -118,6 +122,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
       <img
         alt="We need to talk about Kevin"
         height="175"
+        onClick={[Function]}
         src="img/we-need-to-talk-about-kevin.jpg"
         width="280"
       />
@@ -127,7 +132,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/movie-page/f05"
         onClick={[Function]}
       >
         We need to talk about Kevin
@@ -144,6 +149,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
       <img
         alt="What We Do in the Shadows"
         height="175"
+        onClick={[Function]}
         src="img/what-we-do-in-the-shadows.jpg"
         width="280"
       />
@@ -153,7 +159,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/movie-page/f06"
         onClick={[Function]}
       >
         What We Do in the Shadows
@@ -170,6 +176,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
       <img
         alt="Revenant"
         height="175"
+        onClick={[Function]}
         src="img/revenant.jpg"
         width="280"
       />
@@ -179,7 +186,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/movie-page/f07"
         onClick={[Function]}
       >
         Revenant
@@ -196,6 +203,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
       <img
         alt="Johnny English"
         height="175"
+        onClick={[Function]}
         src="img/johnny-english.jpg"
         width="280"
       />
@@ -205,7 +213,7 @@ exports[`<MovieList /> should render 8 cards 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="/movie-page/f08"
         onClick={[Function]}
       >
         Johnny English

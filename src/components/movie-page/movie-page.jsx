@@ -10,6 +10,24 @@ class MoviePage extends PureComponent {
   render() {
     const {film} = this.props;
     const overview = film.overview.split(`/`);
+    const getRateText = (value) => {
+      if (value <= 3) {
+        return `Bad`;
+      }
+      if (value <= 5) {
+        return `Normal`;
+      }
+      if (value <= 8) {
+        return `Good`;
+      }
+      if (value < 10) {
+        return `Very Good`;
+      }
+      return `Awesome`;
+
+    };
+
+
     return (
       <div>
         <section className="movie-card movie-card--full">
@@ -115,7 +133,7 @@ class MoviePage extends PureComponent {
                   <div className="movie-rating__score">{film.ratingScore}</div>
                   <p className="movie-rating__meta">
                     <span className="movie-rating__level">
-                      {film.ratingLevel}
+                      {getRateText(film.ratingScore)}
                     </span>
                     <span className="movie-rating__count">
                       {film.ratingCount} ratings
@@ -133,7 +151,7 @@ class MoviePage extends PureComponent {
 
                   <p className="movie-card__starring">
                     <strong>
-                      Starring: {film.starring.join(`,`)} and other
+                      Starring: {film.starring.join(`, `)} and other
                     </strong>
                   </p>
                 </div>
@@ -240,7 +258,6 @@ MoviePage.propTypes = {
     year: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
     ratingScore: PropTypes.number.isRequired,
-    ratingLevel: PropTypes.string.isRequired,
     ratingCount: PropTypes.number.isRequired,
     overview: PropTypes.string.isRequired,
     director: PropTypes.string.isRequired,
