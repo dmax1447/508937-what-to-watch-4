@@ -260,6 +260,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
         >
           <article
             className="small-movie-card catalog__movies-card"
+            onClick={[Function]}
             onMouseEnter={[Function]}
           >
             <div
@@ -277,8 +278,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
             >
               <a
                 className="small-movie-card__link"
-                href="movie-page.html"
-                onClick={[Function]}
+                href="/movie-page/f01"
               >
                 Fantastic Beasts: The Crimes of Grindelwald
               </a>
@@ -286,6 +286,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
           </article>
           <article
             className="small-movie-card catalog__movies-card"
+            onClick={[Function]}
             onMouseEnter={[Function]}
           >
             <div
@@ -303,8 +304,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
             >
               <a
                 className="small-movie-card__link"
-                href="movie-page.html"
-                onClick={[Function]}
+                href="/movie-page/f02"
               >
                 Bohemian Rhapsody
               </a>
@@ -312,6 +312,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
           </article>
           <article
             className="small-movie-card catalog__movies-card"
+            onClick={[Function]}
             onMouseEnter={[Function]}
           >
             <div
@@ -329,8 +330,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
             >
               <a
                 className="small-movie-card__link"
-                href="movie-page.html"
-                onClick={[Function]}
+                href="/movie-page/f03"
               >
                 Macbeth
               </a>
@@ -338,6 +338,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
           </article>
           <article
             className="small-movie-card catalog__movies-card"
+            onClick={[Function]}
             onMouseEnter={[Function]}
           >
             <div
@@ -355,8 +356,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
             >
               <a
                 className="small-movie-card__link"
-                href="movie-page.html"
-                onClick={[Function]}
+                href="/movie-page/f04"
               >
                 Aviator
               </a>
@@ -364,6 +364,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
           </article>
           <article
             className="small-movie-card catalog__movies-card"
+            onClick={[Function]}
             onMouseEnter={[Function]}
           >
             <div
@@ -381,8 +382,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
             >
               <a
                 className="small-movie-card__link"
-                href="movie-page.html"
-                onClick={[Function]}
+                href="/movie-page/f05"
               >
                 We need to talk about Kevin
               </a>
@@ -390,6 +390,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
           </article>
           <article
             className="small-movie-card catalog__movies-card"
+            onClick={[Function]}
             onMouseEnter={[Function]}
           >
             <div
@@ -407,8 +408,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
             >
               <a
                 className="small-movie-card__link"
-                href="movie-page.html"
-                onClick={[Function]}
+                href="/movie-page/f06"
               >
                 What We Do in the Shadows
               </a>
@@ -416,6 +416,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
           </article>
           <article
             className="small-movie-card catalog__movies-card"
+            onClick={[Function]}
             onMouseEnter={[Function]}
           >
             <div
@@ -433,8 +434,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
             >
               <a
                 className="small-movie-card__link"
-                href="movie-page.html"
-                onClick={[Function]}
+                href="/movie-page/f07"
               >
                 Revenant
               </a>
@@ -442,6 +442,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
           </article>
           <article
             className="small-movie-card catalog__movies-card"
+            onClick={[Function]}
             onMouseEnter={[Function]}
           >
             <div
@@ -459,8 +460,7 @@ exports[`<App /> should render Main with promo and films list 1`] = `
             >
               <a
                 className="small-movie-card__link"
-                href="movie-page.html"
-                onClick={[Function]}
+                href="/movie-page/f08"
               >
                 Johnny English
               </a>

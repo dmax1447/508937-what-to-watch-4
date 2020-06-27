@@ -4,8 +4,13 @@ import PropTypes from "prop-types";
 const MovieCard = (props) => {
   const {movie, onCardTitleClick, onMouseEnter} = props;
 
+  const cardClickHandler = (evt) => {
+    evt.preventDefault();
+    onCardTitleClick(movie.id);
+  };
+
   return (
-    <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onMouseEnter(movie)}>
+    <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onMouseEnter(movie)} onClick={cardClickHandler}>
       <div className="small-movie-card__image">
         <img
           src={`img/${movie.picture}`}
@@ -17,8 +22,7 @@ const MovieCard = (props) => {
       <h3 className="small-movie-card__title">
         <a
           className="small-movie-card__link"
-          href="movie-page.html"
-          onClick={onCardTitleClick}
+          href={`/movie-page/${movie.id}`}
         >
           {movie.title}
         </a>
