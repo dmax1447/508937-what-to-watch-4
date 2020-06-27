@@ -1,14 +1,14 @@
 import React, {PureComponent} from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import PropTypes from "prop-types";
-import Main from '../main/main.jsx';
+import MainScreen from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      movieId: `f03`,
+      movieId: null,
     };
 
     this.onCardTitleClick = this.onCardTitleClick.bind(this);
@@ -19,20 +19,24 @@ class App extends PureComponent {
     this.setState({movieId: id});
   }
 
+  renderMainRoute() {
+    if (this.state.movieId) {
+      const filmSelected = this.props.films.find((item) => item.id === this.state.movieId);
+      return (<MoviePage film={filmSelected} />);
+    }
+    return (<MainScreen promo={this.props.promo} films={this.props.films} onCardTitleClick={this.onCardTitleClick} />);
+  }
+
   render() {
     return (
       <div>
         <BrowserRouter>
           <Switch>
             <Route exact path="/">
-              <Main
-                promo={this.props.promo}
-                films={this.props.films}
-                onCardTitleClick={this.onCardTitleClick}
-              />
+              {this.renderMainRoute()}
             </Route>
             <Route path="/dev-film">
-              <MoviePage film={this.props.films.find((item) => item.id === this.state.movieId)} />
+              <MoviePage film={this.props.films[1]} />
             </Route>
           </Switch>
         </BrowserRouter>
