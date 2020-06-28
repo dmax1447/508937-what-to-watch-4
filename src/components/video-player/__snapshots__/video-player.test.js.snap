@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VideoPlayer /> should render properly 1`] = `
+<div
+  className="small-movie-card__image"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <img
+    alt="Fantastic Beasts: The Crimes of Grindelwald"
+    height="175"
+    src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+    width="280"
+  />
+</div>
+`;

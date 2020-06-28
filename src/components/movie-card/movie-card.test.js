@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import MovieCard from "./movie-card.jsx";
 
-import movieMock from '../../mocks/tests/movie.js';
+import films from '../../mocks/tests/films.js';
 
 const onCardTitleClick = (evt) => {
   evt.preventDefault();
@@ -14,7 +14,7 @@ it(`<MovieCard /> should render card Fantastic Beasts`, () => {
   const card = renderer
         .create(
             <MovieCard
-              movie={movieMock}
+              movie={films[0]}
               onCardTitleClick={onCardTitleClick}
               onMouseEnter={onMouseEnter}
             />)
