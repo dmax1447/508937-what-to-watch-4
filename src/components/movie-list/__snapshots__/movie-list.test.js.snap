@@ -11,6 +11,8 @@ exports[`<MovieList /> should render 8 cards 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
       <img
         alt="Fantastic Beasts: The Crimes of Grindelwald"
@@ -37,6 +39,8 @@ exports[`<MovieList /> should render 8 cards 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
       <img
         alt="Bohemian Rhapsody"
@@ -63,6 +67,8 @@ exports[`<MovieList /> should render 8 cards 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
       <img
         alt="Macbeth"
@@ -89,6 +95,8 @@ exports[`<MovieList /> should render 8 cards 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
       <img
         alt="Aviator"
@@ -115,6 +123,8 @@ exports[`<MovieList /> should render 8 cards 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
       <img
         alt="We need to talk about Kevin"
@@ -141,6 +151,8 @@ exports[`<MovieList /> should render 8 cards 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
       <img
         alt="What We Do in the Shadows"
@@ -167,6 +179,8 @@ exports[`<MovieList /> should render 8 cards 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
       <img
         alt="Revenant"
@@ -193,6 +207,8 @@ exports[`<MovieList /> should render 8 cards 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
     >
       <img
         alt="Johnny English"

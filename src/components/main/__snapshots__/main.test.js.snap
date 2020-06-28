@@ -264,6 +264,8 @@ exports[`<Main /> should render promo and films list 1`] = `
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="Fantastic Beasts: The Crimes of Grindelwald"
@@ -290,6 +292,8 @@ exports[`<Main /> should render promo and films list 1`] = `
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="Bohemian Rhapsody"
@@ -316,6 +320,8 @@ exports[`<Main /> should render promo and films list 1`] = `
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="Macbeth"
@@ -342,6 +348,8 @@ exports[`<Main /> should render promo and films list 1`] = `
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="Aviator"
@@ -368,6 +376,8 @@ exports[`<Main /> should render promo and films list 1`] = `
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="We need to talk about Kevin"
@@ -394,6 +404,8 @@ exports[`<Main /> should render promo and films list 1`] = `
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="What We Do in the Shadows"
@@ -420,6 +432,8 @@ exports[`<Main /> should render promo and films list 1`] = `
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="Revenant"
@@ -446,6 +460,8 @@ exports[`<Main /> should render promo and films list 1`] = `
         >
           <div
             className="small-movie-card__image"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="Johnny English"
