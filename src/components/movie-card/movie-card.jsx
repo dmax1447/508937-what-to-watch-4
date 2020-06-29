@@ -1,31 +1,41 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-
 import VideoPlayer from '../video-player/video-player.jsx';
 
-const MovieCard = (props) => {
-  const {movie, onCardTitleClick, onMouseEnter} = props;
+class MovieCard extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.cardClickHandler = this.cardClickHandler.bind(this);
+    this.cardMouseEnterHandler = this.cardMouseEnterHandler.bind(this);
+  }
 
-  const cardClickHandler = (evt) => {
+  cardClickHandler(evt) {
     evt.preventDefault();
-    onCardTitleClick(movie.id);
-  };
+    this.props.onCardTitleClick(this.props.movie.id);
+  }
 
-  return (
-    <article
-      className="small-movie-card catalog__movies-card"
-      onMouseEnter={() => onMouseEnter(movie)}
-      onClick={cardClickHandler}
-    >
-      <VideoPlayer movie={movie} />
-      <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href={`/movie-page/${movie.id}`}>
-          {movie.title}
-        </a>
-      </h3>
-    </article>
-  );
-};
+  cardMouseEnterHandler() {
+    this.props.onMouseEnter(this.props.movie);
+  }
+
+  render() {
+    const {movie} = this.props;
+    return (
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={this.cardMouseEnterHandler}
+        onClick={this.cardClickHandler}
+      >
+        <VideoPlayer movie={movie} />
+        <h3 className="small-movie-card__title">
+          <a className="small-movie-card__link" href={`/movie-page/${movie.id}`}>
+            {movie.title}
+          </a>
+        </h3>
+      </article>
+    );
+  }
+}
 
 export default MovieCard;
 

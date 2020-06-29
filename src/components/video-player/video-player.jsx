@@ -63,7 +63,7 @@ VideoPlayer.propTypes = {
     video: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }),
-  isActive: PropTypes.bool,
+  isActive: PropTypes.bool.isRequired,
   setFlagActive: PropTypes.func.isRequired,
   setFlagInactive: PropTypes.func.isRequired,
 };

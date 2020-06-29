@@ -32,9 +32,7 @@ const withActiveFlag = (Component) => {
     }
   }
 
-  // WithActiveFlag.PropTypes = {
-
-  // };
+  WithActiveFlag.propTypes = {};
 
   return WithActiveFlag;
 };
