@@ -1,5 +1,6 @@
 import React, {PureComponent, createRef} from "react";
 import PropTypes from "prop-types";
+import withActiveFlag from '../../hocs/with-active-flag/with-active-flag.js';
 
 class VideoPlayer extends PureComponent {
   constructor(props) {
@@ -7,16 +8,12 @@ class VideoPlayer extends PureComponent {
     this.videoRef = createRef();
     this.timerId = null;
 
-    this.state = {
-      isActive: false,
-    };
-
     this.videoMouseEnterHandler = this.videoMouseEnterHandler.bind(this);
     this.videoMouseLeaveHandler = this.videoMouseLeaveHandler.bind(this);
   }
 
   videoMouseEnterHandler() {
-    this.setState({isActive: true});
+    this.props.setFlagActive();
     this.timerId = setTimeout(() => {
       this.videoRef.current.play();
     }, 1000);
@@ -25,11 +22,12 @@ class VideoPlayer extends PureComponent {
   videoMouseLeaveHandler() {
     clearTimeout(this.timerId);
     this.videoRef.current.pause();
-    this.setState({isActive: false});
+    this.props.setFlagInactive();
   }
 
   render() {
     const {video, picture, title} = this.props.movie;
+    const {isActive} = this.props;
 
     return (
       <div
@@ -37,7 +35,7 @@ class VideoPlayer extends PureComponent {
         onMouseEnter={this.videoMouseEnterHandler}
         onMouseLeave={this.videoMouseLeaveHandler}
       >
-        {this.state.isActive ? (
+        {isActive ? (
           <video
             src={video}
             poster={`img/${picture}`}
@@ -57,7 +55,7 @@ class VideoPlayer extends PureComponent {
   }
 }
 
-export default VideoPlayer;
+export default withActiveFlag(VideoPlayer);
 
 VideoPlayer.propTypes = {
   movie: PropTypes.shape({
@@ -65,4 +63,7 @@ VideoPlayer.propTypes = {
     video: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }),
+  isActive: PropTypes.bool,
+  setFlagActive: PropTypes.func.isRequired,
+  setFlagInactive: PropTypes.func.isRequired,
 };
