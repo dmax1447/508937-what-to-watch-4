@@ -72,7 +72,7 @@ Enzyme.configure({
 });
 
 it(`when mouse enter VideoPlayer flag should be set active`, () => {
-  const WithFlagPlayer = withActiveFlag(<VideoPlayer />);
+  const WithFlagPlayer = withActiveFlag(VideoPlayer);
   const player = mount(<WithFlagPlayer movie={films[0]} />);
   const card = player.find(`.small-movie-card__image`);
   card.simulate(`mouseEnter`);
