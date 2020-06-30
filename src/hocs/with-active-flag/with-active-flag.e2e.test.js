@@ -78,3 +78,12 @@ it(`when mouse enter VideoPlayer flag should be set active`, () => {
   card.simulate(`mouseEnter`);
   expect(player.state(`isActive`)).toBe(true);
 });
+
+it(`when mouse enter and leave VideoPlayer flag should be set false`, () => {
+  const WithFlagPlayer = withActiveFlag(VideoPlayer);
+  const player = mount(<WithFlagPlayer movie={films[0]} />);
+  const card = player.find(`.small-movie-card__image`);
+  card.simulate(`mouseEnter`);
+  card.simulate(`mouseLeave`);
+  expect(player.state(`isActive`)).toBe(false);
+});
