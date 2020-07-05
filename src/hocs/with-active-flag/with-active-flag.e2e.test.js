@@ -71,19 +71,60 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-it(`when mouse enter VideoPlayer flag should be set active`, () => {
+it(`when mouse enter VideoPlayer flag in HOC should be set active`, () => {
   const WithFlagPlayer = withActiveFlag(VideoPlayer);
-  const player = mount(<WithFlagPlayer movie={films[0]} />);
-  const card = player.find(`.small-movie-card__image`);
+  const playerWithHoc = mount(<WithFlagPlayer movie={films[0]} />);
+  window.HTMLMediaElement.prototype.play = () => { };
+  const card = playerWithHoc.find(`.small-movie-card__image`);
   card.simulate(`mouseEnter`);
-  expect(player.state(`isActive`)).toBe(true);
+  expect(playerWithHoc.state(`isActive`)).toBe(true);
 });
 
-it(`when mouse enter and leave VideoPlayer flag should be set false`, () => {
+it(`when mouse enter and leave VideoPlayer flag in HOC should be set false`, () => {
   const WithFlagPlayer = withActiveFlag(VideoPlayer);
-  const player = mount(<WithFlagPlayer movie={films[0]} />);
-  const card = player.find(`.small-movie-card__image`);
+  const playerWithHoc = mount(<WithFlagPlayer movie={films[0]} />);
+  window.HTMLMediaElement.prototype.pause = () => { };
+  const card = playerWithHoc.find(`.small-movie-card__image`);
   card.simulate(`mouseEnter`);
   card.simulate(`mouseLeave`);
-  expect(player.state(`isActive`)).toBe(false);
+  expect(playerWithHoc.state(`isActive`)).toBe(false);
+});
+
+it(`when mouse enter VideoPlayer it turn on video play`, () => {
+  const setFlagActive = () => {};
+  const setFlagInactive = () => {};
+  const movie = films[0];
+  const isActive = true;
+
+  const player = mount(<VideoPlayer movie={movie} isActive={isActive} setFlagActive={setFlagActive} setFlagInactive={setFlagInactive} />);
+  const {videoRef} = player.instance();
+  window.HTMLMediaElement.prototype.play = () => {};
+  const spy = jest.spyOn(videoRef.current, `play`);
+  const card = player.find(`.small-movie-card__image`);
+  card.simulate(`mouseEnter`);
+  setTimeout(() => {
+    expect(spy).toHaveBeenCalledTimes(1);
+  }, 2000);
+});
+
+it(`when mouse enter, hover 1s, and out VideoPlayer - it set playback to pause`, () => {
+  const setFlagActive = () => { };
+  const setFlagInactive = () => { };
+  const movie = films[0];
+  const isActive = true;
+
+  const player = mount(<VideoPlayer movie={movie} isActive={isActive} setFlagActive={setFlagActive} setFlagInactive={setFlagInactive} />);
+  const {videoRef} = player.instance();
+  window.HTMLMediaElement.prototype.play = () => { };
+  window.HTMLMediaElement.prototype.pause = () => { };
+  const spy = jest.spyOn(videoRef.current, `pause`);
+  const card = player.find(`.small-movie-card__image`);
+  card.simulate(`mouseEnter`);
+  setTimeout(() => {
+    card.simulate(`mouseLeave`);
+  }, 1500);
+
+  setTimeout(() => {
+    expect(spy).toHaveBeenCalledTimes(1);
+  }, 2000);
 });
