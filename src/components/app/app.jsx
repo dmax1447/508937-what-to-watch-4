@@ -59,6 +59,15 @@ App.propTypes = {
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         picture: PropTypes.string.isRequired,
+        genre: PropTypes.string.isRequired,
+        year: PropTypes.string.isRequired,
+        poster: PropTypes.string.isRequired,
+        video: PropTypes.string.isRequired,
+        ratingScore: PropTypes.number.isRequired,
+        ratingCount: PropTypes.number.isRequired,
+        overview: PropTypes.string.isRequired,
+        director: PropTypes.string.isRequired,
+        starring: PropTypes.arrayOf(PropTypes.string).isRequired,
       })
   ).isRequired,
 };

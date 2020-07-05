@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 import MovieList from "../movie-list/movie-list.jsx";
 
 const Main = (props) => {
-  const {title, genre, year} = props.promo;
-  const films = props.films;
-  const onCardTitleClick = props.onCardTitleClick;
+  const {films, onCardTitleClick, promo: {title, year, genre}} = props;
 
   return (
     <div>
