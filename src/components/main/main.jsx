@@ -5,9 +5,7 @@ import MovieList from "../movie-list/movie-list.jsx";
 import GenreList from "../genre-list/genre-list.jsx";
 
 const Main = (props) => {
-  const {films, onCardTitleClick, promo: {title, year, genre}} = props;
-  const genresSet = new Set(films.map(item => item.genre));
-  const genres = [...genresSet];
+  const {films, genres, onCardTitleClick, promo: {title, year, genre}} = props;
 
   return (
     <div>
@@ -134,4 +132,5 @@ Main.propTypes = {
       })
   ).isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };
