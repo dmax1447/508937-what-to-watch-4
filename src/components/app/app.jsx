@@ -26,7 +26,18 @@ class App extends PureComponent {
       const filmSelected = this.props.films.find((item) => item.id === this.state.movieId);
       return (<MoviePage film={filmSelected} />);
     }
-    return (<MainScreen promo={this.props.promo} films={this.props.films} onCardTitleClick={this.onCardTitleClick} />);
+    return (<MainScreen
+      promo={this.props.promo}
+      films={this.getFilmsListByGenre(this.props.genre)}
+      onCardTitleClick={this.onCardTitleClick}
+    />);
+  }
+
+  getFilmsListByGenre(genre) {
+    if (genre === `All_genres`) {
+      return this.props.films;
+    }
+    return this.props.films.filter((item) => item.genre === genre);
   }
 
   render() {
@@ -86,4 +97,5 @@ App.propTypes = {
         starring: PropTypes.arrayOf(PropTypes.string).isRequired,
       })
   ).isRequired,
+  genre: PropTypes.string.isRequired
 };
