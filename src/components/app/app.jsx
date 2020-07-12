@@ -1,5 +1,7 @@
 import React, {PureComponent} from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../reducer.js";
 import PropTypes from "prop-types";
 import MainScreen from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
@@ -46,7 +48,21 @@ class App extends PureComponent {
 
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  genre: state.genre,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onWelcomeButtonClick() {
+    dispatch(ActionCreator.incrementStep());
+  },
+  onUserAnswer() {
+    dispatch(ActionCreator.incrementStep());
+  },
+});
+
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 App.propTypes = {
   promo: PropTypes.shape({
