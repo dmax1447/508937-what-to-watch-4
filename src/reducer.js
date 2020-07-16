@@ -20,16 +20,11 @@ const ActionCreator = {
   }),
 };
 
-const genres = [
-  `Drama`,
-  `Adventure`,
-  `Bio`,
-  `Mystery`,
-  `Horror`,
-  `Comedy`,
-];
-
 const reducer = (state = initialState, action) => {
+  if (!action) {
+    return state;
+  }
+
   switch (action.type) {
     case ActionType.SET_GENRE:
       return extend(state, {
@@ -40,10 +35,11 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         genre: `All_genres`,
       });
+
   }
 
   return state;
 };
 
 
-export {reducer, ActionType, ActionCreator, genres};
+export {reducer, ActionType, ActionCreator};
