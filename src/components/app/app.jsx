@@ -13,7 +13,6 @@ class App extends PureComponent {
     };
 
     this.onCardTitleClick = this.onCardTitleClick.bind(this);
-
   }
 
   onCardTitleClick(id) {
