@@ -2,11 +2,13 @@ import {extend} from "./utils.js";
 
 const initialState = {
   genre: `All_genres`,
+  movieId: null,
 };
 
 const ActionType = {
   SET_GENRE: `SET_GENGE`,
   SET_ALL_GENERES: `SET_ALL_GENERES`,
+  SET_MOVIE_ID: `SET_MOVIE_ID`,
 };
 
 const ActionCreator = {
@@ -18,6 +20,10 @@ const ActionCreator = {
     type: ActionType.SET_ALL_GENERES,
     payload: null,
   }),
+  setMovieId: (id) => ({
+    type: ActionType.SET_MOVIE_ID,
+    payload: id,
+  })
 };
 
 const reducer = (state = initialState, action) => {
@@ -34,6 +40,11 @@ const reducer = (state = initialState, action) => {
     case ActionType.SET_ALL_GENERES:
       return extend(state, {
         genre: `All_genres`,
+      });
+
+    case ActionType.SET_MOVIE_ID:
+      return extend(state, {
+        movieId: action.payload
       });
 
   }

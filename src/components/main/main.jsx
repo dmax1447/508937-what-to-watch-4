@@ -5,7 +5,7 @@ import MovieList from "../movie-list/movie-list.jsx";
 import GenreList from "../genre-list/genre-list.jsx";
 
 const Main = (props) => {
-  const {films, genres, onCardTitleClick, promo: {title, year, genre}} = props;
+  const {films, genres, promo: {title, year, genre}} = props;
 
   return (
     <div>
@@ -89,7 +89,7 @@ const Main = (props) => {
 
           <GenreList genres={genres} />
 
-          <MovieList films={films} onCardTitleClick={onCardTitleClick} />
+          <MovieList films={films} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">
@@ -131,6 +131,5 @@ Main.propTypes = {
         picture: PropTypes.string.isRequired,
       })
   ).isRequired,
-  onCardTitleClick: PropTypes.func.isRequired,
   genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };

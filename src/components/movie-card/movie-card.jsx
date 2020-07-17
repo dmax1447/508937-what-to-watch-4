@@ -1,6 +1,8 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import VideoPlayer from '../video-player/video-player.jsx';
+import {connect} from "react-redux";
+import {ActionCreator} from "../../reducer.js";
 
 class MovieCard extends PureComponent {
   constructor(props) {
@@ -37,7 +39,15 @@ class MovieCard extends PureComponent {
   }
 }
 
-export default MovieCard;
+const mapDispatchToProps = (dispatch) => ({
+  onCardTitleClick(id) {
+    dispatch(ActionCreator.setMovieId(id));
+  },
+
+});
+
+export {MovieCard};
+export default connect(null, mapDispatchToProps)(MovieCard);
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({

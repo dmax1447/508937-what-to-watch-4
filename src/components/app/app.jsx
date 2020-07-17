@@ -8,20 +8,11 @@ import MoviePage from '../movie-page/movie-page.jsx';
 class App extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      movieId: null,
-    };
-
-    this.onCardTitleClick = this.onCardTitleClick.bind(this);
-  }
-
-  onCardTitleClick(id) {
-    this.setState({movieId: id});
   }
 
   renderMainRoute() {
-    if (this.state.movieId) {
-      const filmSelected = this.props.films.find((item) => item.id === this.state.movieId);
+    if (this.props.movieId) {
+      const filmSelected = this.props.films.find((item) => item.id === this.props.movieId);
       return (<MoviePage film={filmSelected} />);
     }
     const genres = [...new Set(this.props.films.map((item) => item.genre))];
@@ -31,7 +22,6 @@ class App extends PureComponent {
       promo={this.props.promo}
       films={this.getFilmsListByGenre(this.props.genre)}
       genres={genres}
-      onCardTitleClick={this.onCardTitleClick}
     />);
   }
 
@@ -63,6 +53,7 @@ class App extends PureComponent {
 
 const mapStateToProps = (state) => ({
   genre: state.genre,
+  movieId: state.movieId,
 });
 
 export {App};
@@ -90,5 +81,6 @@ App.propTypes = {
         starring: PropTypes.arrayOf(PropTypes.string).isRequired,
       })
   ).isRequired,
-  genre: PropTypes.string.isRequired
+  genre: PropTypes.string.isRequired,
+  movieId: PropTypes.string,
 };

@@ -3,6 +3,7 @@ import {reducer, ActionCreator} from './reducer.js';
 describe(`check reducer`, () => {
   const initialState = {
     genre: `All_genres`,
+    movieId: null
   };
 
   it(`initial state`, () => {

@@ -16,7 +16,7 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-it(`State key "movieId" should be updated with movie id when user click on movie card`, () => {
+it(`store key "movieId" should be updated with movie id when user click on movie card`, () => {
 
   const app = mount(
       <Provider store={store}>
@@ -29,6 +29,6 @@ it(`State key "movieId" should be updated with movie id when user click on movie
   films.forEach((item, i) => {
     const card = cards.at(i);
     card.simulate(`click`);
-    expect(app.state(`movieId`)).toEqual(item.id);
+    expect(store.getState().movieId).toEqual(item.id);
   });
 });
