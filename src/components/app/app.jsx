@@ -1,5 +1,6 @@
 import React, {PureComponent} from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import MainScreen from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
@@ -7,24 +8,28 @@ import MoviePage from '../movie-page/movie-page.jsx';
 class App extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      movieId: null,
-    };
-
-    this.onCardTitleClick = this.onCardTitleClick.bind(this);
-
-  }
-
-  onCardTitleClick(id) {
-    this.setState({movieId: id});
   }
 
   renderMainRoute() {
-    if (this.state.movieId) {
-      const filmSelected = this.props.films.find((item) => item.id === this.state.movieId);
+    if (this.props.movieId) {
+      const filmSelected = this.props.films.find((item) => item.id === this.props.movieId);
       return (<MoviePage film={filmSelected} />);
     }
-    return (<MainScreen promo={this.props.promo} films={this.props.films} onCardTitleClick={this.onCardTitleClick} />);
+    const genres = [...new Set(this.props.films.map((item) => item.genre))];
+
+
+    return (<MainScreen
+      promo={this.props.promo}
+      films={this.getFilmsListByGenre(this.props.genre)}
+      genres={genres}
+    />);
+  }
+
+  getFilmsListByGenre(genre) {
+    if (genre === `All_genres`) {
+      return this.props.films;
+    }
+    return this.props.films.filter((item) => item.genre === genre);
   }
 
   render() {
@@ -46,7 +51,13 @@ class App extends PureComponent {
 
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  genre: state.genre,
+  movieId: state.movieId,
+});
+
+export {App};
+export default connect(mapStateToProps)(App);
 
 App.propTypes = {
   promo: PropTypes.shape({
@@ -70,4 +81,6 @@ App.propTypes = {
         starring: PropTypes.arrayOf(PropTypes.string).isRequired,
       })
   ).isRequired,
+  genre: PropTypes.string.isRequired,
+  movieId: PropTypes.string,
 };
