@@ -17,7 +17,7 @@ class MovieCard extends PureComponent {
   }
 
   cardMouseEnterHandler() {
-    this.props.onMouseEnter(this.props.movie);
+    this.props.onMouseEnter(this.props.movie.id);
   }
 
   render() {

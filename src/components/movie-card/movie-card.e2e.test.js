@@ -19,5 +19,5 @@ it(`when mouse hover over movie card callback should be called with movie card d
   );
 
   movieCard.simulate(`mouseEnter`);
-  expect(cardHoverHandler.mock.calls[0][0]).toEqual(movie);
+  expect(cardHoverHandler.mock.calls[0][0]).toBe(movie.id);
 });

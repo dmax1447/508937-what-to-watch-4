@@ -1,17 +1,16 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import MovieCard from "../movie-card/movie-card.jsx";
-import withCurrentMovie from '../../hocs/with-current-movie/with-current-movie.js';
+import withActiveItem from '../../hocs/with-active-item/with-active-item.js';
 
 class MovieList extends PureComponent {
   constructor(props) {
     super(props);
-
     this._cardMouseEnterHandler = this._cardMouseEnterHandler.bind(this);
   }
 
-  _cardMouseEnterHandler({id}) {
-    this.props.setCurrentMovie(id);
+  _cardMouseEnterHandler(id) {
+    this.props.setActiveItem(id);
   }
 
   render() {
@@ -39,9 +38,9 @@ MovieList.propTypes = {
         picture: PropTypes.string.isRequired,
       })
   ).isRequired,
-  currentMovie: PropTypes.string,
-  setCurrentMovie: PropTypes.func.isRequired,
+  activeItem: PropTypes.string,
+  setActiveItem: PropTypes.func.isRequired,
 };
 
-export default withCurrentMovie(MovieList);
+export default withActiveItem(MovieList);
 export {MovieList};
