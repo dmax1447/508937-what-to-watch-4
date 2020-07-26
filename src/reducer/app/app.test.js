@@ -1,4 +1,4 @@
-import {reducer, ActionCreator} from './reducer.js';
+import {reducer, ActionCreator} from './app.js';
 
 describe(`check reducer`, () => {
   const initialState = {

@@ -1,4 +1,4 @@
-import {extend} from "./utils.js";
+import {extend} from "../../utils.js";
 
 const initialState = {
   genre: `All_genres`,
@@ -46,7 +46,6 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         movieId: action.payload
       });
-
   }
 
   return state;
