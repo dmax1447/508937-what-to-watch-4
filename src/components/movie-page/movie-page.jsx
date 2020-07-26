@@ -101,7 +101,7 @@ class MoviePage extends PureComponent {
             <div className="movie-card__info">
               <div className="movie-card__poster movie-card__poster--big">
                 <img
-                  src={`img/${film.poster}`}
+                  src={film.poster}
                   alt={film.title}
                   width="218"
                   height="327"

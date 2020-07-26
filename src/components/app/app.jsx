@@ -4,7 +4,8 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import MainScreen from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
-import { getGenre, getMovieID } from '../../reducer/app/selectors.js';
+import {getGenre, getMovieID} from '../../reducer/app/selectors.js';
+import {getFilms} from '../../reducer/data/selectors.js';
 
 class App extends PureComponent {
   constructor(props) {
@@ -55,6 +56,7 @@ class App extends PureComponent {
 const mapStateToProps = (state) => ({
   genre: getGenre(state),
   movieId: getMovieID(state),
+  films: getFilms(state)
 });
 
 export {App};

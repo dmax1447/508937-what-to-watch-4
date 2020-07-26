@@ -1,18 +1,33 @@
 import {extend} from "../../utils.js";
 
+const getFilm = (data) => ({
+  id: `${data.id}`,
+  title: data.name,
+  picture: data.preview_image,
+  genre: data.genre,
+  year: `${data.released}`,
+  poster: data.poster_image,
+  video: data.preview_video_link,
+  ratingScore: data.rating,
+  ratingCount: data.scores_count,
+  overview: data.description,
+  director: data.director,
+  starring: data.starring
+});
+
 
 const initialState = {
   films: [],
 };
 
 const ActionType = {
-  LOAD_FILMS: `LOAD_FILMS`,
+  SET_FILMS: `SET_FILMS`,
 };
 
 const ActionCreator = {
-  loadQuestions: (films) => {
+  setFilms: (films) => {
     return {
-      type: ActionType.LOAD_FILMS,
+      type: ActionType.SET_FILMS,
       payload: films,
     };
   },
@@ -20,7 +35,7 @@ const ActionCreator = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.LOAD_FILMS:
+    case ActionType.SET_FILMS:
       return extend(state, {
         films: action.payload,
       });
@@ -29,5 +44,15 @@ const reducer = (state = initialState, action) => {
   return state;
 };
 
+const Operation = {
+  loadFilms: () => (dispatch, getState, api) => {
+    return api.get(`/films`)
+      .then((response) => {
+        const films = response.data.map(getFilm);
+        dispatch(ActionCreator.setFilms(films));
+      });
+  },
+};
 
-export {reducer, ActionType, ActionCreator};
+
+export {reducer, ActionType, ActionCreator, Operation};
