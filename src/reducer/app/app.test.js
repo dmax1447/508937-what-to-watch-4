@@ -1,6 +1,6 @@
 import {reducer, ActionCreator} from './app.js';
 
-describe(`check reducer`, () => {
+describe(`check reducer APP`, () => {
   const initialState = {
     genre: `All_genres`,
     movieId: null

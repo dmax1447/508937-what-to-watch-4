@@ -34,6 +34,10 @@ const ActionCreator = {
 };
 
 const reducer = (state = initialState, action) => {
+  if (!action) {
+    return state;
+  }
+
   switch (action.type) {
     case ActionType.SET_FILMS:
       return extend(state, {

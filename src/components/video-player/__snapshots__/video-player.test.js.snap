@@ -9,7 +9,7 @@ exports[`<VideoPlayer /> should render properly 1`] = `
   <img
     alt="Fantastic Beasts: The Crimes of Grindelwald"
     height="175"
-    src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+    src="fantastic-beasts-the-crimes-of-grindelwald.jpg"
     width="280"
   />
 </div>
