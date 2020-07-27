@@ -59,4 +59,4 @@ const Operation = {
 };
 
 
-export {reducer, ActionType, ActionCreator, Operation};
+export {reducer, ActionType, ActionCreator, Operation, getFilm};
