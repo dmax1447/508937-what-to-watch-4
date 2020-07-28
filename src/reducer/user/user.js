@@ -1,3 +1,5 @@
+import {extend} from "../../utils.js";
+
 const AuthorizationStatus = {
   AUTH: `AUTH`,
   NO_AUTH: `NO_AUTH`,
@@ -5,19 +7,27 @@ const AuthorizationStatus = {
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
+  user: null,
 };
 
 const ActionType = {
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  SET_USER: `SET_USER`,
 };
 
 const ActionCreator = {
   requireAuthorization: (status) => {
-    return {
+    return ({
       type: ActionType.REQUIRED_AUTHORIZATION,
       payload: status,
-    };
+    });
   },
+  setUser: (userData) => {
+    return ({
+      type: ActionType.SET_USER,
+      payload: userData
+    });
+  }
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,8 +37,12 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case ActionType.REQUIRED_AUTHORIZATION:
-      return Object.assign({}, state, {
+      return extend(state, {
         authorizationStatus: action.payload,
+      });
+    case ActionType.SET_USER:
+      return extend(state, {
+        user: action.payload
       });
   }
 
@@ -39,8 +53,9 @@ const reducer = (state = initialState, action) => {
 const Operation = {
   checkAuth: () => (dispatch, getState, api) => {
     return api.get(`/login`)
-      .then(() => {
+      .then((response) => {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+        dispatch(ActionCreator.setUser(response.data));
       })
       .catch((err) => {
         throw err;
