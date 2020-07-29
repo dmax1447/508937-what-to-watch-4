@@ -11,7 +11,7 @@ import reducer from "./reducer/reducer.js";
 import {createAPI} from "./api.js";
 
 import {Operation as DataOperation} from "./reducer/data/data.js";
-import {Operation as UserOperation, ActionCreator, AuthorizationStatus} from "./reducer/user/user.js";
+import {ActionCreator, AuthorizationStatus} from "./reducer/user/user.js";
 
 const onUnauthorized = () => {
   store.dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
@@ -26,7 +26,7 @@ const store = createStore(
     )
 );
 
-store.dispatch(UserOperation.checkAuth());
+// store.dispatch(UserOperation.checkAuth());
 store.dispatch(DataOperation.loadFilms());
 
 const promo = {
