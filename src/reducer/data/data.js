@@ -1,20 +1,5 @@
 import {extend} from "../../utils.js";
-
-const getFilm = (data) => ({
-  id: `${data.id}`,
-  title: data.name,
-  picture: data.preview_image,
-  genre: data.genre,
-  year: `${data.released}`,
-  poster: data.poster_image,
-  video: data.preview_video_link,
-  ratingScore: data.rating,
-  ratingCount: data.scores_count,
-  overview: data.description,
-  director: data.director,
-  starring: data.starring
-});
-
+import createFilm from "../../adapters/create-film.js";
 
 const initialState = {
   films: [],
@@ -52,11 +37,11 @@ const Operation = {
   loadFilms: () => (dispatch, getState, api) => {
     return api.get(`/films`)
       .then((response) => {
-        const films = response.data.map(getFilm);
+        const films = response.data.map(createFilm);
         dispatch(ActionCreator.setFilms(films));
       });
   },
 };
 
 
-export {reducer, ActionType, ActionCreator, Operation, getFilm};
+export {reducer, ActionType, ActionCreator, Operation};

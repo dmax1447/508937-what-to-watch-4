@@ -1,7 +1,8 @@
-import {reducer, ActionCreator, ActionType, Operation, getFilm} from './data.js';
+import {reducer, ActionCreator, ActionType, Operation} from './data.js';
 import filmsMock from '../../mocks/tests/films.js';
 import MockAdapter from "axios-mock-adapter";
-import {createAPI} from "../../api";
+import {createAPI} from "../../api.js";
+import createFilm from "../../adapters/create-film.js";
 
 const initialState = {
   films: [],
@@ -45,7 +46,7 @@ describe(`check reducer DATA`, () => {
       "video_link": `http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4`,
     }];
 
-    const replyMockMapped = replyMock.map(getFilm);
+    const replyMockMapped = replyMock.map(createFilm);
 
     apiMock
       .onGet(`/films`)
