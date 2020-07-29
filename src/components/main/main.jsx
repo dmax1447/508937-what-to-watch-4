@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 
 import MovieList from "../movie-list/movie-list.jsx";
 import GenreList from "../genre-list/genre-list.jsx";
+import {Link} from "react-router-dom";
 
 const Main = (props) => {
-  const {films, genres, promo: {title, year, genre}} = props;
+  const {films, genres, promo: {title, year, genre}, authState} = props;
 
   return (
     <div>
@@ -29,14 +30,22 @@ const Main = (props) => {
           </div>
 
           <div className="user-block">
-            <div className="user-block__avatar">
-              <img
-                src="img/avatar.jpg"
-                alt="User avatar"
-                width="63"
-                height="63"
-              />
-            </div>
+            {authState === `AUTH` ? (
+              <div className="user-block__avatar">
+                <Link to="/mylist">
+                  <img
+                    src="img/avatar.jpg"
+                    alt="User avatar"
+                    width="63"
+                    height="63"
+                  />
+                </Link>
+              </div>
+            ) : (
+              <Link to="/login" className="user-block__link">
+                  Sign in
+              </Link>
+            )}
           </div>
         </header>
 
@@ -132,4 +141,9 @@ Main.propTypes = {
       })
   ).isRequired,
   genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  authState: PropTypes.string.isRequired,
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }),
 };

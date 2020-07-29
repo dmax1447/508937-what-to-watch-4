@@ -33,6 +33,7 @@ it(`<Main /> should render correctly`, () => {
             films={filmsMock}
             onCardTitleClick={onCardTitleClick}
             genres={genres}
+            authState="AUTH"
           />
         </Provider>
     ).toJSON();

@@ -46,7 +46,10 @@ describe(`check reducer USER`, () => {
   it(`operation LOGIN shold make correct api call to /login`, () => {
     const apiMock = new MockAdapter(api);
     const dispatchMock = jest.fn();
-    const operationLogin = Operation.login(authDataMock);
+    const onSuccessMock = jest.fn();
+    const onErrorMock = jest.fn();
+
+    const operationLogin = Operation.login(authDataMock, onSuccessMock, onErrorMock);
 
     apiMock
       .onPost(`/login`)
@@ -59,6 +62,7 @@ describe(`check reducer USER`, () => {
           type: ActionType.REQUIRED_AUTHORIZATION,
           payload: `AUTH`,
         });
+        expect(onSuccessMock).toHaveBeenCalledTimes(1);
       });
   });
 

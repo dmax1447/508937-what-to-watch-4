@@ -4,9 +4,11 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import MainScreen from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
+import SignIn from '../sign-in/sign-in.jsx';
 import {getGenre, getMovieID} from '../../reducer/app/selectors.js';
 import {getFilms} from '../../reducer/data/selectors.js';
 import {getFilmsByGenre} from '../../reducer/app/selectors.js';
+import {getAuthorizationStatus} from '../../reducer/user/selectors.js';
 
 class App extends PureComponent {
   constructor(props) {
@@ -25,6 +27,7 @@ class App extends PureComponent {
       promo={this.props.promo}
       films={this.props.filmsByGenre}
       genres={genres}
+      authState={this.props.authState}
     />);
   }
 
@@ -39,6 +42,9 @@ class App extends PureComponent {
             <Route path="/dev-film">
               <MoviePage film={this.props.films[1]} />
             </Route>
+            <Route path="/login">
+              <SignIn />
+            </Route>
           </Switch>
         </BrowserRouter>
       </div>
@@ -52,6 +58,7 @@ const mapStateToProps = (state) => ({
   movieId: getMovieID(state),
   films: getFilms(state),
   filmsByGenre: getFilmsByGenre(state),
+  authState: getAuthorizationStatus(state)
 });
 
 export {App};
@@ -97,4 +104,5 @@ App.propTypes = {
   ).isRequired,
   genre: PropTypes.string.isRequired,
   movieId: PropTypes.string,
+  authState: PropTypes.string.isRequired,
 };
