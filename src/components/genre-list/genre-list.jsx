@@ -1,7 +1,8 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../reducer.js";
+import {ActionCreator} from "../../reducer/app/app.js";
+import {getGenre} from '../../reducer/app/selectors.js';
 
 
 class GenreList extends PureComponent {
@@ -56,7 +57,7 @@ GenreList.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  genre: state.genre,
+  genre: getGenre(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

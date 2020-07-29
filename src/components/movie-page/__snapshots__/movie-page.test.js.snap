@@ -147,7 +147,7 @@ exports[`Movie page should render correctly 1`] = `
           <img
             alt="Aviator"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src="the-grand-budapest-hotel-poster.jpg"
             width="218"
           />
         </div>

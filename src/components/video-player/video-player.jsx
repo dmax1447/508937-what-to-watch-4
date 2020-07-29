@@ -38,14 +38,14 @@ class VideoPlayer extends PureComponent {
         {activeItem === id ? (
           <video
             src={video}
-            poster={`img/${picture}`}
+            poster={picture}
             width="280"
             height="175"
             ref={this.videoRef}
             muted
           />
         ) : (
-          <img src={`img/${picture}`} alt={title} width="280" height="175" />
+          <img src={picture} alt={title} width="280" height="175" />
         )}
       </div>
     );

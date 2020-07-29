@@ -1,15 +1,21 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import App from "./app.jsx";
-
-import promo from '../../mocks/tests/promo.js';
-import films from '../../mocks/tests/films.js';
-
-import {createStore} from "redux";
 import {Provider} from "react-redux";
-import {reducer} from "../../reducer.js";
+import promo from '../../mocks/tests/promo.js';
+import filmsMock from '../../mocks/tests/films.js';
+import configureStore from "redux-mock-store";
 
-const store = createStore(reducer);
+const mockStore = configureStore([]);
+const store = mockStore({
+  APP: {
+    genre: `All_genres`,
+  },
+  DATA: {
+    films: filmsMock
+  }
+});
+
 
 const onCardTitleClick = (evt) => {
   evt.preventDefault();
@@ -21,7 +27,6 @@ it(`<App /> should render correctly`, () => {
         <Provider store={store}>
           <App
             promo={promo}
-            films={films}
             onCardTitleClick={onCardTitleClick}
           />
         </Provider>

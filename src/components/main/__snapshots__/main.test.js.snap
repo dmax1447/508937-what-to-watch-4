@@ -247,7 +247,7 @@ exports[`<Main /> should render correctly 1`] = `
             <img
               alt="Fantastic Beasts: The Crimes of Grindelwald"
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="fantastic-beasts-the-crimes-of-grindelwald.jpg"
               width="280"
             />
           </div>
@@ -275,7 +275,7 @@ exports[`<Main /> should render correctly 1`] = `
             <img
               alt="Bohemian Rhapsody"
               height="175"
-              src="img/bohemian-rhapsody.jpg"
+              src="bohemian-rhapsody.jpg"
               width="280"
             />
           </div>
@@ -303,7 +303,7 @@ exports[`<Main /> should render correctly 1`] = `
             <img
               alt="Macbeth"
               height="175"
-              src="img/macbeth.jpg"
+              src="macbeth.jpg"
               width="280"
             />
           </div>
@@ -331,7 +331,7 @@ exports[`<Main /> should render correctly 1`] = `
             <img
               alt="Aviator"
               height="175"
-              src="img/aviator.jpg"
+              src="aviator.jpg"
               width="280"
             />
           </div>
@@ -359,7 +359,7 @@ exports[`<Main /> should render correctly 1`] = `
             <img
               alt="We need to talk about Kevin"
               height="175"
-              src="img/we-need-to-talk-about-kevin.jpg"
+              src="we-need-to-talk-about-kevin.jpg"
               width="280"
             />
           </div>
@@ -387,7 +387,7 @@ exports[`<Main /> should render correctly 1`] = `
             <img
               alt="What We Do in the Shadows"
               height="175"
-              src="img/what-we-do-in-the-shadows.jpg"
+              src="what-we-do-in-the-shadows.jpg"
               width="280"
             />
           </div>
@@ -415,7 +415,7 @@ exports[`<Main /> should render correctly 1`] = `
             <img
               alt="Revenant"
               height="175"
-              src="img/revenant.jpg"
+              src="revenant.jpg"
               width="280"
             />
           </div>
@@ -443,7 +443,7 @@ exports[`<Main /> should render correctly 1`] = `
             <img
               alt="Johnny English"
               height="175"
-              src="img/johnny-english.jpg"
+              src="johnny-english.jpg"
               width="280"
             />
           </div>
