@@ -13,6 +13,9 @@ const store = mockStore({
   },
   DATA: {
     films: filmsMock
+  },
+  USER: {
+    authorizationStatus: `AUTH`
   }
 });
 
