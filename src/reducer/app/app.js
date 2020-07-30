@@ -51,5 +51,19 @@ const reducer = (state = initialState, action) => {
   return state;
 };
 
+const Operation = {
+  postComment: (payload, onSuccess, onError) => (dispatch, getState, api) => {
+    return api.post(`/comments/${payload.id}`, {
+      rating: payload.rating,
+      comment: payload.comment,
+    })
+      .then(() => {
+        onSuccess();
+      })
+      .catch(() => {
+        onError();
+      });
+  },
+};
 
-export {reducer, ActionType, ActionCreator};
+export {reducer, ActionType, ActionCreator, Operation};

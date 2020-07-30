@@ -13,6 +13,7 @@ const withReviewState = (Component) => {
 
       this.setComment = this.setComment.bind(this);
       this.setRating = this.setRating.bind(this);
+      this.setBlocked = this.setBlocked.bind(this);
     }
 
     setComment(evt) {

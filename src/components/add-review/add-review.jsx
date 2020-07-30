@@ -1,7 +1,7 @@
 import React, {PureComponent, createRef, Fragment} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {Operation} from "../../reducer/user/user.js";
+import {Operation} from "../../reducer/app/app.js";
 import {getFilmById} from "../../reducer/app/selectors.js";
 import {withRouter} from "react-router-dom";
 import withReviewState from "../../hocs/with-review-state/with-review-state.js";
@@ -9,8 +9,6 @@ import withReviewState from "../../hocs/with-review-state/with-review-state.js";
 class AddReview extends PureComponent {
   constructor(props) {
     super(props);
-    this.reviewTextareaRef = createRef();
-    this.formRef = createRef();
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.onSuccessSubmit = this.onSuccessSubmit.bind(this);
     this.onFailSubmit = this.onFailSubmit.bind(this);
@@ -19,7 +17,12 @@ class AddReview extends PureComponent {
   onSubmitHandler(evt) {
     evt.preventDefault();
     this.props.setBlocked(true);
-    // this.props.submitReviewOperation(review, this.onSuccessSubmit, this.onFailSubmit);
+    const payload = {
+      id: this.props.film.id,
+      comment: this.props.comment,
+      rating: this.props.rating
+    };
+    this.props.submitReviewOperation(payload, this.onSuccessSubmit, this.onFailSubmit);
   }
 
   onSuccessSubmit() {
@@ -86,28 +89,28 @@ class AddReview extends PureComponent {
           </div>
 
           <div className="add-review">
-            <form action="#" className="add-review__form" onSubmit={this.onSubmitHandler} ref={this.formRef}>
+            <form action="#" className="add-review__form" onSubmit={this.onSubmitHandler}>
               <div className="rating">
                 <div className="rating__stars">
-                  <input className="rating__input" id="star-1" type="radio" name="rating" value="1" onInput={setRating}/>
+                  <input className="rating__input" id="star-1" type="radio" name="rating" value="1" onInput={setRating} />
                   <label className="rating__label" htmlFor="star-1">Rating 1</label>
 
-                  <input className="rating__input" id="star-2" type="radio" name="rating" value="2" onInput={setRating}/>
+                  <input className="rating__input" id="star-2" type="radio" name="rating" value="2" onInput={setRating} />
                   <label className="rating__label" htmlFor="star-2">Rating 2</label>
 
-                  <input className="rating__input" id="star-3" type="radio" name="rating" value="3" defaultChecked onInput={setRating}/>
+                  <input className="rating__input" id="star-3" type="radio" name="rating" value="3" defaultChecked onInput={setRating} />
                   <label className="rating__label" htmlFor="star-3">Rating 3</label>
 
-                  <input className="rating__input" id="star-4" type="radio" name="rating" value="4" onInput={setRating}/>
+                  <input className="rating__input" id="star-4" type="radio" name="rating" value="4" onInput={setRating} />
                   <label className="rating__label" htmlFor="star-4">Rating 4</label>
 
-                  <input className="rating__input" id="star-5" type="radio" name="rating" value="5" onInput={setRating}/>
+                  <input className="rating__input" id="star-5" type="radio" name="rating" value="5" onInput={setRating} />
                   <label className="rating__label" htmlFor="star-5">Rating 5</label>
                 </div>
               </div>
 
               <div className="add-review__text">
-                <textarea ref={this.reviewTextareaRef} className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" onInput={setComment}></textarea>
+                <textarea ref={this.reviewTextareaRef} className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" minLength="50" maxLength="150" onInput={setComment}></textarea>
                 <div className="add-review__submit">
                   <button className="add-review__btn" type="submit" disabled={blocked || !valid}>Post</button>
                 </div>
@@ -126,6 +129,8 @@ AddReview.propTypes = {
   submitReviewOperation: PropTypes.func.isRequired,
   history: PropTypes.object,
   film: PropTypes.object,
+  comment: PropTypes.string,
+  rating: PropTypes.number,
   setRating: PropTypes.func.isRequired,
   setComment: PropTypes.func.isRequired,
   setBlocked: PropTypes.func.isRequired,
@@ -139,7 +144,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   submitReviewOperation(review, onSuccessSubmit, onFailSubmit) {
-    dispatch(Operation.login(review, onSuccessSubmit, onFailSubmit));
+    dispatch(Operation.postComment(review, onSuccessSubmit, onFailSubmit));
   },
 });
 
