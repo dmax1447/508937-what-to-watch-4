@@ -26,10 +26,12 @@ class AddReview extends PureComponent {
   }
 
   onSuccessSubmit() {
+    this.props.setBlocked(false);
     this.props.history.goBack();
   }
 
   onFailSubmit() {
+    this.props.setBlocked(false);
     throw new Error(`error in submit`);
   }
 
@@ -110,7 +112,7 @@ class AddReview extends PureComponent {
               </div>
 
               <div className="add-review__text">
-                <textarea ref={this.reviewTextareaRef} className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" minLength="50" maxLength="150" onInput={setComment}></textarea>
+                <textarea ref={this.reviewTextareaRef} className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" minLength="50" maxLength="400" onInput={setComment}></textarea>
                 <div className="add-review__submit">
                   <button className="add-review__btn" type="submit" disabled={blocked || !valid}>Post</button>
                 </div>

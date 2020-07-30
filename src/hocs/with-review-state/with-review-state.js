@@ -31,7 +31,7 @@ const withReviewState = (Component) => {
     render() {
       return (<Component
         {...this.props}
-        valid={this.state.comment && this.state.comment.length >= 50 && this.state.rating !== null}
+        valid={this.state.comment && this.state.comment.length >= 50 && this.state.comment.length <= 400 && this.state.rating !== null}
         blocked={this.state.blocked}
         comment={this.state.comment}
         rating={this.state.rating}
