@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Movie page should render correctly 1`] = `
-<div>
+Array [
   <section
     className="movie-card movie-card--full"
   >
@@ -51,16 +51,13 @@ exports[`Movie page should render correctly 1`] = `
         <div
           className="user-block"
         >
-          <div
-            className="user-block__avatar"
+          <a
+            className="user-block__link"
+            href="/login"
+            onClick={[Function]}
           >
-            <img
-              alt="User avatar"
-              height="63"
-              src="img/avatar.jpg"
-              width="63"
-            />
-          </div>
+            Sign in
+          </a>
         </div>
       </header>
       <div
@@ -125,12 +122,6 @@ exports[`Movie page should render correctly 1`] = `
                 My list
               </span>
             </button>
-            <a
-              className="btn movie-card__button"
-              href="add-review.html"
-            >
-              Add review
-            </a>
           </div>
         </div>
       </div>
@@ -246,7 +237,7 @@ exports[`Movie page should render correctly 1`] = `
         </div>
       </div>
     </div>
-  </section>
+  </section>,
   <div
     className="page-content"
   >
@@ -394,6 +385,6 @@ exports[`Movie page should render correctly 1`] = `
         </p>
       </div>
     </footer>
-  </div>
-</div>
+  </div>,
+]
 `;

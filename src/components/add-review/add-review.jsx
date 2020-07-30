@@ -1,4 +1,4 @@
-import React, {PureComponent, createRef, Fragment} from "react";
+import React, {PureComponent, Fragment} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Operation} from "../../reducer/app/app.js";
