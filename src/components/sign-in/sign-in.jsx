@@ -24,7 +24,7 @@ class SignIn extends PureComponent {
   }
 
   onSuccessLogin() {
-    this.props.history.push(`/`);
+    this.props.history.goBack();
   }
 
   onFailLogin() {

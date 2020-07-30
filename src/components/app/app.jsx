@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import MainScreen from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
 import SignIn from '../sign-in/sign-in.jsx';
+import AddReview from '../add-review/add-review.jsx';
 import {getGenre, getMovieID} from '../../reducer/app/selectors.js';
 import {getFilms} from '../../reducer/data/selectors.js';
 import {getFilmsByGenre} from '../../reducer/app/selectors.js';
@@ -18,7 +19,7 @@ class App extends PureComponent {
   renderMainRoute() {
     if (this.props.movieId) {
       const filmSelected = this.props.films.find((item) => item.id === this.props.movieId);
-      return (<MoviePage film={filmSelected} />);
+      return (<MoviePage film={filmSelected} authState={this.props.authState} />);
     }
     const genres = [...new Set(this.props.films.map((item) => item.genre))];
 
@@ -40,10 +41,13 @@ class App extends PureComponent {
               {this.renderMainRoute()}
             </Route>
             <Route path="/dev-film">
-              <MoviePage film={this.props.films[1]} />
+              <MoviePage film={this.props.films[7]} authState={this.props.authState}/>
             </Route>
             <Route path="/login">
               <SignIn />
+            </Route>
+            <Route path="/dev-add-review">
+              <AddReview />
             </Route>
           </Switch>
         </BrowserRouter>

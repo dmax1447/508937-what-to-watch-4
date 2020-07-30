@@ -22,3 +22,14 @@ export const getFilmsByGenre = createSelector(
       return films.filter((item) => item.genre === genre);
     }
 );
+
+export const getFilmById = createSelector(
+    getFilms,
+    getMovieID,
+    (films, movieId) => {
+
+      const id = movieId || `7`;
+      const film = films.find((item) => item.id === id);
+      return film;
+    }
+);

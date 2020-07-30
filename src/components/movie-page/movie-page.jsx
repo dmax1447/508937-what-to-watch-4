@@ -1,5 +1,7 @@
-import React, {PureComponent} from "react";
+import React, {PureComponent, Fragment} from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
+
 
 class MoviePage extends PureComponent {
   constructor(props) {
@@ -8,7 +10,15 @@ class MoviePage extends PureComponent {
 
 
   render() {
-    const {film} = this.props;
+    const {film, authState} = this.props;
+
+    if (!film) {
+      return (
+        <p className="page__header">
+          film is loading, wait please...
+        </p>);
+    }
+
     const overview = film.overview.split(`/`);
     const getRateText = (value) => {
       if (value <= 3) {
@@ -27,9 +37,8 @@ class MoviePage extends PureComponent {
 
     };
 
-
     return (
-      <div>
+      <Fragment>
         <section className="movie-card movie-card--full">
           <div className="movie-card__hero">
             <div className="movie-card__bg">
@@ -51,14 +60,22 @@ class MoviePage extends PureComponent {
               </div>
 
               <div className="user-block">
-                <div className="user-block__avatar">
-                  <img
-                    src="img/avatar.jpg"
-                    alt="User avatar"
-                    width="63"
-                    height="63"
-                  />
-                </div>
+                {authState === `AUTH` ? (
+                  <div className="user-block__avatar">
+                    <Link to="/mylist">
+                      <img
+                        src="img/avatar.jpg"
+                        alt="User avatar"
+                        width="63"
+                        height="63"
+                      />
+                    </Link>
+                  </div>
+                ) : (
+                  <Link to="/login" className="user-block__link">
+                          Sign in
+                  </Link>
+                )}
               </div>
             </header>
 
@@ -89,9 +106,11 @@ class MoviePage extends PureComponent {
                     </svg>
                     <span>My list</span>
                   </button>
-                  <a href="add-review.html" className="btn movie-card__button">
-                    Add review
-                  </a>
+                  {authState === `AUTH` &&
+                        <Link to="/dev-add-review" className="btn movie-card__button">
+                          Add review
+                        </Link>
+                  }
                 </div>
               </div>
             </div>
@@ -113,17 +132,17 @@ class MoviePage extends PureComponent {
                   <ul className="movie-nav__list">
                     <li className="movie-nav__item movie-nav__item--active">
                       <a href="#" className="movie-nav__link">
-                        Overview
+                            Overview
                       </a>
                     </li>
                     <li className="movie-nav__item">
                       <a href="#" className="movie-nav__link">
-                        Details
+                            Details
                       </a>
                     </li>
                     <li className="movie-nav__item">
                       <a href="#" className="movie-nav__link">
-                        Reviews
+                            Reviews
                       </a>
                     </li>
                   </ul>
@@ -151,7 +170,7 @@ class MoviePage extends PureComponent {
 
                   <p className="movie-card__starring">
                     <strong>
-                      Starring: {film.starring.join(`, `)} and other
+                          Starring: {film.starring.join(`, `)} and other
                     </strong>
                   </p>
                 </div>
@@ -176,7 +195,7 @@ class MoviePage extends PureComponent {
                 </div>
                 <h3 className="small-movie-card__title">
                   <a className="small-movie-card__link" href="movie-page.html">
-                    Fantastic Beasts: The Crimes of Grindelwald
+                        Fantastic Beasts: The Crimes of Grindelwald
                   </a>
                 </h3>
               </article>
@@ -192,7 +211,7 @@ class MoviePage extends PureComponent {
                 </div>
                 <h3 className="small-movie-card__title">
                   <a className="small-movie-card__link" href="movie-page.html">
-                    Bohemian Rhapsody
+                        Bohemian Rhapsody
                   </a>
                 </h3>
               </article>
@@ -208,7 +227,7 @@ class MoviePage extends PureComponent {
                 </div>
                 <h3 className="small-movie-card__title">
                   <a className="small-movie-card__link" href="movie-page.html">
-                    Macbeth
+                        Macbeth
                   </a>
                 </h3>
               </article>
@@ -224,7 +243,7 @@ class MoviePage extends PureComponent {
                 </div>
                 <h3 className="small-movie-card__title">
                   <a className="small-movie-card__link" href="movie-page.html">
-                    Aviator
+                        Aviator
                   </a>
                 </h3>
               </article>
@@ -245,7 +264,7 @@ class MoviePage extends PureComponent {
             </div>
           </footer>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
@@ -263,6 +282,7 @@ MoviePage.propTypes = {
     director: PropTypes.string.isRequired,
     starring: PropTypes.arrayOf(PropTypes.string.isRequired),
   }),
+  authState: PropTypes.string.isRequired
 };
 
 export default MoviePage;
