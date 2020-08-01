@@ -21,7 +21,7 @@ const withReviewState = (Component) => {
     }
 
     setRating(evt) {
-      this.setState({rating: evt.target.value});
+      this.setState({rating: parseInt(evt.target.value, 10)});
     }
 
     setBlocked(value) {

@@ -7,12 +7,12 @@ import MoviePage from "./movie-page.jsx";
 import movieMockFull from '../../mocks/tests/movie-full.js';
 
 it(`Movie page should render correctly`, () => {
-  const card = renderer
+  const page = renderer
         .create(
             <BrowserRouter>
               <MoviePage film={movieMockFull} authState={`NO_AUTH`} />
             </BrowserRouter>
         ).toJSON();
 
-  expect(card).toMatchSnapshot();
+  expect(page).toMatchSnapshot();
 });
